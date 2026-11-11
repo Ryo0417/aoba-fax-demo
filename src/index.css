@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #24362e;
+  background: #f3f5ef;
+  font-synthesis: none;
+  --green: #245b45;
+  --orange: #d77835;
+  --border: #dce3dc;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 1100px; }
+button, input, select { font: inherit; }
+button, .button { cursor: pointer; }
+a { color: var(--green); }
+h1, h2, p { margin-top: 0; }
+h1 { font-size: 1.7rem; margin-bottom: 0; }
+h2 { font-size: 1rem; margin-bottom: 12px; }
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: 235px 1fr; }
+.sidebar { background: #193f32; color: white; padding: 26px 18px; display: flex; flex-direction: column; }
+.brand { display: flex; gap: 12px; align-items: center; margin-bottom: 38px; }
+.brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #a4c3b2; border-radius: 50%; font-family: serif; font-size: 1.3rem; }
+.brand strong, .brand small { display: block; }
+.brand small { color: #b6cfc2; font-size: .72rem; margin-top: 3px; }
+nav { display: grid; gap: 7px; }
+nav a { color: #d9e6df; text-decoration: none; padding: 12px 14px; border-radius: 7px; }
+nav a.active, nav a:hover { color: white; background: #2e614d; }
+.reset { margin-top: auto; border: 1px solid #8fb3a2; color: #e7f3ec; background: transparent; border-radius: 6px; padding: 10px 12px; }
+.sidebar-note { color: #b6cfc2; font-size: .72rem; line-height: 1.5; }
+.main { padding: 28px 32px 40px; }
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; gap: 16px; }
+.eyebrow { color: #73847b; letter-spacing: .13em; font-size: .7rem; margin-bottom: 4px; }
+.header-actions { display: flex; gap: 10px; }
+.button { border: 0; border-radius: 6px; padding: 10px 17px; background: var(--green); color: white; text-decoration: none; }
+.button.secondary { background: white; color: var(--green); border: 1px solid var(--border); }
+.button:disabled { opacity: .45; cursor: default; }
+.panel { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.lead, .waiting, .meta-line { color: #52655b; font-size: .9rem; }
+.notice { background: #e7f1ea; color: #245b45; border-radius: 6px; padding: 10px 12px; }
+.error { color: #9a3412; }
+.success { color: var(--green); }
+.filters { display: flex; align-items: end; gap: 18px; margin: 8px 0 16px; }
+label { display: grid; gap: 6px; color: #52655b; font-size: .82rem; font-weight: 500; }
+input, select { color: #24362e; background: white; border: 1px solid #ccd7cf; border-radius: 6px; padding: 8px 10px; min-width: 0; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid #e8ede9; vertical-align: middle; }
+th { color: #718078; font-size: .75rem; font-weight: 500; }
+.clickable { cursor: pointer; }
+.clickable:hover { background: #f6faf7; }
+.badge { display: inline-block; padding: 4px 9px; border-radius: 99px; font-size: .76rem; background: #e8eee9; }
+.badge.received, .badge.processing { color: #1d4e89; background: #e3eefb; }
+.badge.needs_review { color: #a54b1f; background: #fbe9dd; }
+.badge.confirmed { color: #24603e; background: #e1f0e6; }
+.empty { text-align: center; padding: 28px; color: #718078; }
+.meta-line { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.review { display: grid; grid-template-columns: minmax(360px, 42%) 1fr; gap: 16px; align-items: start; }
+.pdf-pane iframe { width: 100%; height: 78vh; border: 1px solid var(--border); border-radius: 6px; background: #eee; }
+.lines input, .lines select { width: 100%; }
+.lines td { padding: 8px 6px; }
+.needs-review { background: #fff4cc; }
+.review-flag { display: inline-block; margin-top: 4px; font-size: .7rem; color: #8a5a00; }
+.text-button { border: 0; background: transparent; color: var(--green); padding: 8px 0; }
+.form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 12px; }
+.panel .lead { margin-bottom: 14px; }
+.panel > label { max-width: 280px; margin-bottom: 14px; }
