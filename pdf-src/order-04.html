@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="order.css" />
+  <title>発注書</title>
+</head>
+<body>
+  <article class="sheet">
+    <header class="top">
+      <span class="fax-mark">FAX</span>
+      <h1>発注書</h1>
+      <span class="date">発注日 {{ORDER_DATE}}</span>
+    </header>
+    <div class="parties">
+      <section>
+        <p class="label">宛先</p>
+        <p class="name">あおば青果（デモ） 御中</p>
+        <p>FAX 000-000-0001</p>
+      </section>
+      <section>
+        <p class="label">送信元</p>
+        <p class="name">みなと病院</p>
+        <p>サンプル市港町5-6-7</p>
+        <p>TEL 000-000-0402 / FAX 000-000-0401</p>
+      </section>
+    </div>
+    <p class="hope">納品希望日　<span>{{DELIVERY_DATE}}</span></p>
+    <table>
+      <thead>
+        <tr><th>品名</th><th>数量</th><th>単位</th><th>備考</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>キャベツ</td><td>12</td><td>kg</td><td></td></tr>
+        <tr><td>人参</td><td>8</td><td>kg</td><td></td></tr>
+        <tr><td>ほうれん草</td><td>3</td><td>kg</td><td></td></tr>
+        <tr><td>きゅうり</td><td>2</td><td>kg</td><td></td></tr>
+        <tr class="blank"><td></td><td></td><td></td><td></td></tr>
+        <tr class="blank"><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="closing">上記のとおり発注いたします。</p>
+    <footer>この書類はデモ用の架空データです。実在の取引先・個人とは関係ありません。</footer>
+  </article>
+</body>
+</html>

@@ -26,6 +26,7 @@ export function Layout() {
           <NavLink to="/" end>
             受信箱
           </NavLink>
+          <NavLink to="/daily">納品必要量</NavLink>
         </nav>
         <button className="reset" type="button" onClick={reset}>
           デモデータを初期化

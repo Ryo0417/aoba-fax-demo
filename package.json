@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "node scripts/stamp-today.mjs && vite",
+    "build": "node scripts/stamp-today.mjs && tsc -b && vite build",
     "lint": "find src -type f \\( -name '*.ts' -o -name '*.tsx' \\) -print0 | xargs -0 oxlint --no-ignore",
     "preview": "vite preview",
-    "pdf": "bash scripts/make-pdfs.sh"
+    "pdf": "node scripts/stamp-today.mjs --force"
   },
   "dependencies": {
     "react": "^19.2.8",

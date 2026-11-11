@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { PageHeader } from '../components/Layout'
 import { useDemo } from '../demo-context'
-import { formatDateTime } from '../format'
+import { demoToday } from '../demo-today'
+import { addDays, formatDateTime } from '../format'
 import { FAX_STATUS_LABEL, UNITS, type OrderLine } from '../types'
 
 function linesOf(lines: OrderLine[], faxId: string | undefined): OrderLine[] {
@@ -12,7 +13,7 @@ function linesOf(lines: OrderLine[], faxId: string | undefined): OrderLine[] {
 export function FaxReviewPage() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { state, saveFax, confirmFax } = useDemo()
+  const { state, saveFax, confirmFax, revertFax } = useDemo()
   const fax = state.faxes.find((item) => item.id === id)
   const [boundId, setBoundId] = useState(id)
   const [customerId, setCustomerId] = useState(fax?.customerId ?? '')
@@ -53,7 +54,7 @@ export function FaxReviewPage() {
       {
         id: `new-${Date.now()}`,
         faxId: fax.id,
-        deliveryDate: sample?.deliveryDate ?? '2026-11-09',
+        deliveryDate: sample?.deliveryDate ?? addDays(demoToday, 2),
         itemName: '',
         quantity: '1',
         unit: 'kg',
@@ -94,6 +95,12 @@ export function FaxReviewPage() {
     }
     confirmFax(fax.id, customerId, draft)
     navigate('/')
+  }
+
+  const revert = () => {
+    revertFax(fax.id)
+    setError(null)
+    setMessage('確定を取り消し、下書きに戻しました。')
   }
 
   return (
@@ -228,7 +235,14 @@ export function FaxReviewPage() {
               )}
               {error && <p className="error">{error}</p>}
               {message && <p className="success">{message}</p>}
-              {locked && <p className="success">この注文書は確定済みです。</p>}
+              {locked && (
+                <div className="form-footer">
+                  <p className="success">この注文書は確定済です。</p>
+                  <button className="button secondary" type="button" onClick={revert}>
+                    確定を取り消して下書きに戻す
+                  </button>
+                </div>
+              )}
             </>
           )}
         </section>

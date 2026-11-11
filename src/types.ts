@@ -4,7 +4,7 @@ export const FAX_STATUS_LABEL: Record<FaxStatus, string> = {
   received: '受信',
   processing: '処理中',
   needs_review: '確認待ち',
-  confirmed: '確定済み',
+  confirmed: '確定済',
 }
 
 export type Customer = {
@@ -52,4 +52,4 @@ export type DemoState = {
   incoming: IncomingFax[]
 }
 
-export const UNITS = ['kg', '本', '玉', 'ケース', '房', '袋'] as const
+export const UNITS = ['kg', '本', '玉', '個', '枚', '束', 'ケ', 'ケース', '房', '袋'] as const

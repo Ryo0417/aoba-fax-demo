@@ -12,7 +12,7 @@ if [[ ! -x "$CHROME" ]]; then
   exit 1
 fi
 
-for name in order-01 order-02 order-03; do
+for name in order-01 order-02 order-03 order-04 order-05 order-06 order-07; do
   "$CHROME" \
     --headless=new \
     --disable-gpu \

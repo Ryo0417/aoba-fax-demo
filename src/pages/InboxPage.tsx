@@ -5,17 +5,12 @@ import { useDemo } from '../demo-context'
 import { formatDateTime } from '../format'
 import { FAX_STATUS_LABEL, type FaxStatus } from '../types'
 
-type Filter = 'open' | 'confirmed'
-
 export function InboxPage() {
   const { state, receiveNewFax } = useDemo()
   const navigate = useNavigate()
-  const [filter, setFilter] = useState<Filter>('open')
   const [notice, setNotice] = useState<string | null>(null)
 
-  const rows = [...state.faxes]
-    .filter((fax) => (filter === 'confirmed' ? fax.status === 'confirmed' : fax.status !== 'confirmed'))
-    .sort((a, b) => b.receivedAt.localeCompare(a.receivedAt))
+  const rows = [...state.faxes].sort((a, b) => b.receivedAt.localeCompare(a.receivedAt))
 
   const receive = () => {
     const accepted = receiveNewFax()
@@ -35,13 +30,6 @@ export function InboxPage() {
         </p>
         {notice && <p className="notice">{notice}</p>}
         <div className="filters">
-          <label>
-            表示
-            <select value={filter} onChange={(event) => setFilter(event.target.value as Filter)}>
-              <option value="open">未処理</option>
-              <option value="confirmed">確定済み</option>
-            </select>
-          </label>
           <p className="waiting">受信待ち {state.incoming.length}件</p>
         </div>
         <div className="table-wrap">

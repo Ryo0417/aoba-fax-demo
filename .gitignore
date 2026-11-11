@@ -1,4 +1,5 @@
 node_modules/
+pdf-src/.generated/
 dist/
 .DS_Store
 .env

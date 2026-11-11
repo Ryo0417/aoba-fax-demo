@@ -1,9 +1,10 @@
 import { useEffect, useState, type ReactNode } from 'react'
+import { demoToday } from './demo-today'
 import { createSeed } from './seed'
 import type { DemoState, OrderLine } from './types'
 import { DemoContext, type DemoContextValue } from './demo-context'
 
-const STORAGE_KEY = 'maruichi-demo-v1'
+const STORAGE_KEY = `aoba-demo-${demoToday}`
 const READ_DELAY_MS = 3000
 
 function loadState(): DemoState {
@@ -77,6 +78,14 @@ export function DemoProvider({ children }: { children: ReactNode }) {
     },
     confirmFax: (faxId, customerId, lines) => {
       commit((current) => replaceFax(current, faxId, customerId, lines, true))
+    },
+    revertFax: (faxId) => {
+      commit((current) => ({
+        ...current,
+        faxes: current.faxes.map((fax) =>
+          fax.id === faxId ? { ...fax, status: 'needs_review', confirmedAt: undefined } : fax,
+        ),
+      }))
     },
     resetDemo: () => {
       const next = createSeed()

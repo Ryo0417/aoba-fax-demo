@@ -6,6 +6,7 @@ export type DemoContextValue = {
   receiveNewFax: () => boolean
   saveFax: (faxId: string, customerId: string, lines: OrderLine[]) => void
   confirmFax: (faxId: string, customerId: string, lines: OrderLine[]) => void
+  revertFax: (faxId: string) => void
   resetDemo: () => void
 }
 

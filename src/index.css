@@ -65,3 +65,15 @@ th { color: #718078; font-size: .75rem; font-weight: 500; }
 .form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 12px; }
 .panel .lead { margin-bottom: 14px; }
 .panel > label { max-width: 280px; margin-bottom: 14px; }
+.daily-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
+.check { display: flex; align-items: center; gap: 6px; }
+.check input { width: auto; }
+.date-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabs { display: flex; gap: 8px; margin: 14px 0; }
+.tabs button { border: 1px solid var(--border); background: white; color: var(--green); border-radius: 6px; padding: 8px 14px; }
+.tabs button.active { background: var(--green); color: white; }
+.daily-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.totals { max-width: 720px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.note { color: #718078; font-size: .82rem; }
+.panel + .tabs { margin-top: 14px; }
